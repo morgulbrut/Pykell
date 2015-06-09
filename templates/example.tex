@@ -1,0 +1,154 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage{xltxtra,xunicode}
+\usepackage[ngerman]{babel}
+\usepackage[babel,german=swiss]{csquotes}
+\setlength{\parindent}{0pt}
+
+% Schriften
+% Schriftarten bestimmen mit otfinfo -a /usr/share/fonts/OTF/<Name>
+\setromanfont[Mapping=tex-text]{Linux Libertine O}
+%\setromanfont[Mapping=tex-text]{Ubuntu}
+%\setromanfont[Mapping=tex-text]{Sansation}
+
+\setsansfont[Mapping=tex-text]{Linux Biolinum O}
+%\setsansfont[Mapping=tex-text]{Ubuntu}
+%\setsansfont[Mapping=tex-text,Scale=MatchLowercase]{Sansation}
+
+% \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{Caecilia LT Std}
+%%%%
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={},               % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=none,                      % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  otherkeywords={*},               % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\usepackage{fancyhdr} %Paket laden
+\newcommand{\namestyle}[1]{\textsf{\LARGE\textcolor{namecolor}{\textbf{#1}}\normalsize}}
+\newcommand{\titlestyle}[1]{\textsf{\LARGE\textcolor{titlecolor}{\textbf{#1}}\normalsize}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% erlaubt einfaches Anpassen der Titelformatierung
+
+\usepackage{titlesec}
+% % % Titelformatierung
+\titleformat{\chapter}				{\color{titlecolor}\sffamily\LARGE\bfseries}{}{-.35em}{}[\color{sectioncolor}\rule{\textwidth}{.25ex}]
+\titleformat{\section}				{\color{sectioncolor}\sffamily\large\bfseries}{}{0.2ex}{}[\color{sectioncolor}\titlerule]
+\titleformat{\subsection}			{\color{subsectioncolor}\sffamily\large\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}		{\color{subsectioncolor}\sffamily\bfseries}{}{0pt}{}
+\titleformat{\paragraph}[runin]		{\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}[runin]	{\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\chapter}      		{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\section}      		{0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsection}   		{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsection}		{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\paragraph}    		{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+\titlespacing*{\subparagraph} 		{\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+% Nummerierungstiefe
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Diverse Pakete
+
+\usepackage[german]{fancyref}
+\usepackage{lastpage}
+\usepackage{ifthen}
+
+%Sonderzeichen
+\usepackage{textcomp,marvosym}
+
+% Text farbig hinterlegen
+\usepackage{xcolor}
+%\usepackage{colortbl}
+
+% Bilder einbinden
+\usepackage{graphicx}
+
+\usepackage{url}
+
+% Schönerer Tabellen
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% Mehr Listenumgebungen
+\usepackage{paralist, blindtext}
+\usepackage{calc}
+%\usepackage[left=2.7cm]{geometry}
+
+%%% Colors
+\definecolor{rulecolor}{rgb}{0.5,0.5,0.5}
+\definecolor{namecolor}{rgb}{0.3,0.3,0.3}
+\definecolor{titlecolor}{rgb}{0.7,0.7,0.7}
+\definecolor{sectioncolor}{rgb}{0.5,0.5,0.5}
+\definecolor{subsectioncolor}{rgb}{0.5,0.5,0.5}
+\definecolor{footercolor}{rgb}{0.5,0.5,0.5}
+
+\usepackage[bottom=15mm,
+          headheight=2mm,
+          headsep=10mm,
+          footskip=7mm,
+          left=20mm,
+          right=20mm]{geometry}
+
+\renewcommand*{\maketitle}{
+    \namestyle{\exampletitle}
+\\[-.35em]%
+  {\color{rulecolor}\rule{\textwidth}{.25ex}}
+}%
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\pagestyle{fancy} 
+\fancyhf{} 
+
+\newcommand{\exampletitle}{$title$ - $author.name$}
+\usepackage[
+  colorlinks,
+  linkcolor=blue,
+  anchorcolor=blue,
+  citecolor=red,
+  filecolor=magenta,
+  urlcolor=magenta,
+  pdffitwindow=true,
+  hyperfigures=true,
+]{hyperref}
+\begin{document}
+%\sffamily
+\addfontfeature{Numbers=OldStyle,Ligatures=Common}
+\maketitle
+
+\addfontfeature{Numbers=OldStyle,Ligatures=Common}
+$body$
+
+\end{document}
