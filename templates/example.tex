@@ -5,7 +5,6 @@
 \setlength{\parindent}{0pt}
 
 % Schriften
-% Schriftarten bestimmen mit otfinfo -a /usr/share/fonts/OTF/<Name>
 \setromanfont[Mapping=tex-text]{Linux Libertine O}
 %\setromanfont[Mapping=tex-text]{Ubuntu}
 %\setromanfont[Mapping=tex-text]{Sansation}
@@ -14,7 +13,7 @@
 %\setsansfont[Mapping=tex-text]{Ubuntu}
 %\setsansfont[Mapping=tex-text,Scale=MatchLowercase]{Sansation}
 
-% \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{Caecilia LT Std}
+\setmonofont[Mapping=tex-text,Scale=MatchLowercase]{Consolas}
 %%%%
 
 \usepackage{listings}
@@ -25,19 +24,18 @@
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
 \lstset{ %
-  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
-  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  backgroundcolor=\color{black},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize\ttfamily\color{white}, % the size of the fonts that are used for the code
+  breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
   captionpos=b,                    % sets the caption-position to bottom
   commentstyle=\color{mygreen},    % comment style
   deletekeywords={},               % if you want to delete keywords from the given language
-  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  escapeinside={}{},               % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
   frame=none,                      % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\color{blue},       % keyword style
-  language=Octave,                 % the language of the code
   otherkeywords={*},               % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
   numbersep=5pt,                   % how far the line-numbers are from the code
@@ -46,9 +44,9 @@
   showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
   showstringspaces=false,          % underline spaces within strings only
   showtabs=false,                  % show tabs within strings adding particular underscores
-  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
   stringstyle=\color{mymauve},     % string literal style
-  tabsize=2,                       % sets default tabsize to 2 spaces
+  tabsize=4,                       % sets default tabsize to 2 spaces
   title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
@@ -97,6 +95,7 @@
 \usepackage{url}
 
 % Schönerer Tabellen
+\usepackage{array}
 \usepackage{booktabs}
 \usepackage{longtable}
 
@@ -130,7 +129,10 @@
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
 \pagestyle{fancy} 
-\fancyhf{} 
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
 
 \newcommand{\exampletitle}{$title$ - $author.name$}
 \usepackage[

@@ -86,8 +86,8 @@ class Pykell:
         try:
             pypandoc.convert(infile, 'html-yaml_metadata_block', outputfile=path + filename + '.html',
                              extra_args=['-s', '--template=' + template])
-        except p as RuntimeError:
-            logging.error('Pandoc died with exitcode "%s" during conversation: %s' % (p.returncode, infile))
+        except RuntimeError:
+            logging.exception('Pandoc RuntimeError')
         except:
             raise
 
