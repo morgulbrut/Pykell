@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>How to Pykell - </title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/listings.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+<body>
+<h1 id="about-pykell">About Pykell</h1>
+<p>Pykell is a Python 3 module for generating static websites or goodlooking documents. Thanks to <a href="http://pandoc.org/">pandoc</a> and <a href="https://pypi.python.org/pypi/pypandoc/">pypandoc</a>.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>generating html from an input markdown file</li>
+<li>generating pdf from an input markdown file (<a href="http://www.xelatex.org/">XeLaTeX</a> required, easyiest way to get it: install <a href="http://www.tug.org/texlive/">TeXLive</a> or <a href="http://miktex.org/">MiKTeX</a></li>
+<li>input files can have a <a href="http://yaml.org/">yaml</a></li>
+<li>if the tex template uses the <a href="https://www.ctan.org/pkg/listings">listings</a> package, syntax highlighted code listings are possible.</li>
+<li>merge pdfs.</li>
+<li>copy directory structures and files (useful for images, css and js stuff).</li>
+<li>generate filelists, either for internal stuff or as a html snippet.</li>
+<li>including text via a variable in a template (for example a filelist html snippet)</li>
+</ul>
+<h2 id="todo">TODO:</h2>
+<ul>
+<li>implementing a server listening to the output directory</li>
+<li>checking files, only process if either the input or the template changed</li>
+<li>maybe some kind of gallery thing</li>
+</ul>
+<h1 id="example">Example</h1>
+<p>The following code shows how the example is build</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="co"># -*- coding: utf-8 -*-</span>
+<span class="ch">from</span> datetime <span class="ch">import</span> date
+
+<span class="ch">from</span> Pykell <span class="ch">import</span> Pykell
+
+site = Pykell()
+
+<span class="kw">def</span> main():
+
+    <span class="kw">for</span> f in [<span class="st">&#39;README.md&#39;</span>,]:
+        site.genPdf(f, <span class="st">&#39;demo/&#39;</span>, <span class="st">&#39;templates/example.tex&#39;</span>)
+        site.genHtml(f, <span class="st">&#39;demo/&#39;</span>, <span class="st">&#39;templates/example.html&#39;</span>)
+
+    site.copyDir(<span class="st">&#39;css/&#39;</span>,<span class="st">&#39;demo/&#39;</span>)
+
+<span class="kw">class</span> Site(Pykell):
+    <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&#39;__main__&#39;</span>:
+        main()</code></pre>
+
+</body>
+</html>

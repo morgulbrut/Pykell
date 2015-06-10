@@ -1,0 +1,35 @@
+pre {
+    background: #272822;
+    word-wrap: break-word;
+    margin: 0px;
+    padding: 10px;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+pre, code {
+    font-family: 'Monaco', courier, monospace;
+}
+
+pre .co {
+    color: #75715E;
+}
+
+pre .ch {
+    color: #AE81FF;
+}
+
+pre .ot {
+    color: #66D9EF;
+}
+
+pre .st{
+    color: #E6DB74;
+}
+
+pre .kw {
+    color: #F92672;
+}
+
+
